@@ -1,7 +1,7 @@
 from decimal import Decimal
 from datetime import date
 
-from backend.app.models.extraction import (
+from app.models.extraction import (
     PatientInfo,
     DoctorInfo,
     HospitalInfo,

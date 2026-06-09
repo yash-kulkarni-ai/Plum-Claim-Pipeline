@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 
-from backend.app.models.trace import (
+from app.models.trace import (
     TraceStatus,
     TraceSeverity,
     TraceEvent,

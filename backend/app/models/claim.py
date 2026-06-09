@@ -53,10 +53,10 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from backend.app.models.decision import ClaimDecision, FraudResult, ValidationResult
-from backend.app.models.document import UploadedDocument
-from backend.app.models.extraction import ExtractionResult
-from backend.app.models.trace import TraceEvent
+from app.models.decision import ClaimDecision, FraudResult, ValidationResult
+from app.models.document import UploadedDocument
+from app.models.extraction import ExtractionResult
+from app.models.trace import TraceEvent
 
 
 # ---------------------------------------------------------------------------

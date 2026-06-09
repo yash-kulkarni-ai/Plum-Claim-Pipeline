@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from decimal import Decimal
 import json
 
-from backend.app.models.decision import (
+from app.models.decision import (
     DecisionType,
     ValidationStatus,
     ValidationResult,

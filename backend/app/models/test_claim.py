@@ -1,7 +1,7 @@
 from datetime import datetime, date, timezone
 from decimal import Decimal
 
-from backend.app.models.claim import (
+from app.models.claim import (
     ClaimCategory,
     ClaimStatus,
     ClaimSubmission,
@@ -10,7 +10,7 @@ from backend.app.models.claim import (
     ClaimState,
 )
 
-from backend.app.models.document import UploadedDocument
+from app.models.document import UploadedDocument
 
 # --------------------------------------------------
 # Enums

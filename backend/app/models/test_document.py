@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 import json
 
-from backend.app.models.document import (
+from app.models.document import (
     DocumentType,
     UploadedDocument,
 )
