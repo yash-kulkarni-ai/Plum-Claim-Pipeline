@@ -53,6 +53,7 @@ from langgraph.graph import END, StateGraph
 
 from app.graph.routes import route_after_evaluation, route_after_verification
 from app.graph.state import OverallState
+from app.agents.document_classifier import classify_documents_agent
 
 # ---------------------------------------------------------------------------
 # Node skeleton functions
@@ -64,19 +65,15 @@ from app.graph.state import OverallState
 # ---------------------------------------------------------------------------
 
 
-def document_classifier(state: OverallState) -> dict[str, object]:
+def document_classifier(
+    state: OverallState,
+) -> dict[str, object]:
     """
     Classify each uploaded document by its type.
 
-    Responsibilities (to be implemented in the agent module):
-    - Send each ``UploadedDocument`` through Gemini Vision with a
-      classification prompt.
-    - Populate ``document_type``, ``confidence``, and
-      ``classification_reason`` on each document.
-    - Append ``TraceEvent`` objects recording the classification outcome
-      for every document.
-    - Append ``ProcessingError`` entries for any documents that could not
-      be classified due to LLM or parsing failures.
+    Delegates to ``classify_documents_agent`` in
+    ``app.agents.document_classifier``.  See that module for the full
+    implementation contract.
 
     Parameters
     ----------
@@ -87,11 +84,10 @@ def document_classifier(state: OverallState) -> dict[str, object]:
     Returns
     -------
     dict[str, object]
-        Partial state update.  Expected keys when implemented:
-        ``document_results``, ``trace_events``, ``errors``, ``warnings``,
-        ``status``.
+        Partial state update containing ``document_results``,
+        ``trace_events``, and optionally ``errors``.
     """
-    return {}
+    return classify_documents_agent(state)
 
 
 def document_verifier(state: OverallState) -> dict[str, object]:
